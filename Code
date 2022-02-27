@@ -1,0 +1,21 @@
+n = int(input("how many people?"))
+k = int(input("how many steps?"))
+def josephus(n,k):
+  ls=[]
+  for i in range(1,n+1):
+    ls.append(i)
+  id = k-1
+  print(ls)
+  while(len(ls)>1):
+    pos = (id)%len(ls)
+    item = ls[pos]
+    print(item)
+    ls.pop(pos)
+    id+= k-1
+    id=id%len(ls)
+    print(ls)
+  return ls[0]
+
+p = josephus(n,k)
+print("%d"%p)
+  
