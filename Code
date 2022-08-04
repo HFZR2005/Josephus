@@ -1,18 +1,19 @@
+
 n = int(input("how many people?"))
 k = int(input("how many steps?"))
+
 def josephus(n,k):
   ls=[i for i in range(1, n+1)] # creates a list of all members numbered 1 to N
   id = k-1 # pop function will automatically count from the number after the one thats been killed, so you add k-1 instead of k
   print(ls)
+
   while(len(ls)>1):
-    pos = (id)%len(ls) #starts at first value with position k - python begins counting at 0, so choosing k-1th value will choose the correct value in the list
-    item = ls[pos]
-    print(item)
+    pos = (id) % len(ls) #starts at first value with position k - python begins counting at 0, so choosing k-1th value will choose the correct value in the list
+    print(ls[pos])
     ls.pop(pos)
-    id=(id + k -1)%len(ls) # moves to the next value in the list, k steps forward. mod of length of list is used so that id< number of remaining members, and so that people are killed in a "circle"
+    id = (id + k - 1) % len(ls) # moves to the next value in the list, k steps forward. mod of length of list is used so that id< number of remaining members, and so that people are killed in a "circle"
     print(ls)
   return ls[0] #when the length of the list is 1, the remaining number is the survivor
 
 p = josephus(n,k)
-print("Josephus is person number %d"%p)
-  
+print(f"Josephus is person number {str(p)}")
