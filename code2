@@ -1,0 +1,9 @@
+def j(n):
+  if n == 1:
+    return 1
+  
+  elif n % 2 == 0:
+    return 2 * j(n/2)-1
+
+  elif n % 2 == 1:
+    return 2 * j((n-1)/2) + 1
